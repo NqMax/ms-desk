@@ -1,37 +1,234 @@
 import Link from "next/link";
+// Data
+// import { getAdminDocs } from "@/lib/data";
+// UI Components
 import { Button } from "@/components/ui/button";
-import React from "react";
 
-export default function UserDocs() {
+export default function AdministratorDocs() {
   const contents = [
     {
-      title: "Ticket System",
+      title: "Service Document",
       content: (
-        <div>
-          This document provides a comprehensive guide to the ticket system
-          within the application, covering both customer functionalities.
-        </div>
+        <>
+          <div>
+            Our service will give the capacity to workers and clients to ask for
+            any support of a problem presented in the system with the usage of
+            tickets. After they generate the ticket the IT team will be notified
+            and in the flow of the service each ticket that is generated will be
+            assigned to someone from the team.
+          </div>
+          <div>
+            Also It will have different types of tickets depending on its
+            priority, it will have four types: Critical, High, Medium and Low.
+          </div>
+        </>
       ),
-    },
-    {
-      title: "Account Creation",
-      content: (
-        <div>
-          You can create an account by clicking on the Sign Up button on the
-          login page. Fill out the registration form with your email address,
-          desired username, and a secure password.
-        </div>
-      ),
-    },
-    {
-      title: "Submitting a Ticket",
-      content: (
-        <div>
-          You can submit a ticket on the administration home page. Click the
-          Submit a Ticket button and fill out the form with the required
-          information.
-        </div>
-      ),
+      subContents: [
+        {
+          title: "Objectives",
+          content: (
+            <ul className="flex flex-col gap-y-2 list-disc pl-5">
+              <li>
+                Give a more organized way to ask for internal and external
+                support to the IT team.
+              </li>
+              <li>
+                Solve any problem that has to be done at the moment and impacts
+                in a critical form the system or the business.
+              </li>
+              <li>Have each support given by the IT members documented.</li>
+              <li>
+                Ensure that a problem has been solved and that the
+                internal/external client has been satisfied with the result.
+              </li>
+            </ul>
+          ),
+        },
+        {
+          title: "Roles",
+          content: (
+            <ul className="flex flex-col gap-y-2 list-disc pl-5">
+              <li>
+                <span className="font-bold">Internal client - </span>
+                Collaborators of the company that make use of a system made up
+                by the IT team.
+              </li>
+              <li>
+                <span className="font-bold">External client - </span>
+                Customers that have acquired a system that has been sold by the
+                company.
+              </li>
+              <li>
+                <span className="font-bold">IT Team - </span>
+                Involves different fields of the technology team, this
+                collaborators are related to a specific system and can involved
+                the infrastructure, development and administrative staff. This
+                will have sub-roles:
+                <ul className="mt-2 flex flex-col gap-y-2 list-disc pl-5">
+                  <li>
+                    <span className="font-bold">Administrator - </span>
+                    It will have whole access and full control over the system.
+                    He can manage users, configure settings and access to data.
+                  </li>
+                  <li>
+                    <span className="font-bold">Manager - </span>
+                    It can see the tickets flow day by day, monitor data and
+                    assigned tickets in a manual form.
+                  </li>
+                  <li>
+                    <span className="font-bold">Operational member - </span>
+                    Collaborator that has the ticket assigned and has to
+                    resolved the ticket that has been assigned to him.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          ),
+        },
+        {
+          title: "Processes and Procedures",
+          content: (
+            <div className="flex flex-col gap-y-2">
+              The core of the system consist on and input that will be the
+              ticket and an output that will be the solution of it. But all the
+              things that occurs to reached the output consists on the following
+              processes:
+              <ul className="flex flex-col gap-y-2 list-disc pl-5">
+                <li>
+                  <div className="font-bold">P1 Ticket Generation</div>
+                  <div className="mt-2">
+                    As written before, the process starts with the input of a
+                    ticket, where the internal / external client creates it when
+                    having a problem with the system.
+                  </div>
+                  <div className="my-2">
+                    It will go to the website of tickets, and it will select the
+                    area in which he is having problem with (each area will have
+                    a description in a ubiquitous form to make anyone understand
+                    with which field his problem is related with it) adding a
+                    description about it and putting a tag of the possible
+                    category of the ticket.
+                  </div>
+                </li>
+                <li>
+                  <div className="font-bold">P2 Ticket Assignation</div>
+                  <div className="mt-2">
+                    Once a ticket has been created, it will reach the assignment
+                    stage in which a manager can assign to a collaborator the
+                    ticket that has been registered or a collaborator can select
+                    the ticket he wants to attend, it depends on the criteria
+                    selection and the business strategy.
+                  </div>
+                  <div className="my-2">
+                    Each person has to focus more depending on the priority of
+                    the tickets if his ticket workloads it needs to work on the
+                    ones that have a highest priority and before taking it, he
+                    needs to analyze if the tickets priority needs to be
+                    categorized to an upper or lower priority.
+                  </div>
+                </li>
+                <li>
+                  <div className="font-bold">P3 Ticket Action</div>
+                  <div className="mt-2">
+                    The collaborator needs to keep track of the communication of
+                    the customer, entering the resolution process of the ticket.
+                    At the moment the collaborator begins to solve a ticket he
+                    needs to set the status of it on: In progress, so people can
+                    know where a ticket has been processed or if someone else
+                    can take a ticket that the other collaborator has assigned
+                    to resolve more tickets.
+                  </div>
+                  <div className="my-2">
+                    If it is needed to escalate the ticket to higher roles to
+                    reach a solution the collaborator needs to add the other
+                    collaborator to the ticket to have the data that has been
+                    tested to find a solution and try other solutions instead of
+                    trying again the things that have already been tried.
+                  </div>
+                </li>
+                <li>
+                  <div className="font-bold">P4 - Ticket closing</div>
+                  <div className="my-2">
+                    Once the collaborator has resolved the issue, he has to set
+                    the ticket to resolved, and needs to contact the customer
+                    that creates the ticket to have the respective feedback, if
+                    he tells that everything is working well the collaborator
+                    needs to set the ticket as closed, otherwise the status has
+                    to be resigned to in progress, and the collaborator needs to
+                    attend the feedback suggestions about what part of the
+                    problem is remaining to help to solve it completely.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          ),
+        },
+        {
+          title: "Tools Involved Into the Service",
+          content: (
+            <div className="flex flex-col gap-y-2">
+              For the incorporation of the service it will have some tools
+              running in the background, in which it has been incorporated with
+              the OS of Windows Server with system center. The selected tools of
+              system center to build up the logic and flow of the system has
+              been build up with the following:
+              <ul className="flex flex-col gap-y-2 list-disc pl-5">
+                <li>
+                  <div className="font-bold">
+                    System Center Operations Manager (SCOM)
+                  </div>
+                  <div className="mt-2">
+                    Acts as the central nervous system, continuously monitoring
+                    IT infrastructure for performance issues and potential
+                    problems. When anomalies are detected, SCOM generates
+                    alerts.
+                  </div>
+                  <div className="my-2">
+                    SCOM alerts automatically create tickets in SCSM, reducing
+                    manual workload and ensuring timely issue identification.
+                  </div>
+                </li>
+                <li>
+                  <div className="font-bold">
+                    System Center Orchestrator (SCORCH)
+                  </div>
+                  <div className="mt-2">
+                    Functions as the automation engine. It receives alerts from
+                    SCOM and triggers pre-defined workflows (runbooks) to
+                    automate routine tasks. These runbooks can diagnose basic
+                    issues, attempt initial fixes, and even notify relevant
+                    personnel via email or SMS.
+                  </div>
+                  <div className="my-2">
+                    SCORCH automates repetitive tasks, freeing up the
+                    collaborator time to focus on complex issues.
+                  </div>
+                </li>
+                <li>
+                  <div className="font-bold">
+                    System Center Service Manager (SCSM)
+                  </div>
+                  <div className="my-2">
+                    Serves as the central hub for ticketing and incident
+                    management. Users can submit tickets through various
+                    channels, like a web portal or email. SCSM integrates with
+                    SCOM, allowing ticket creation from triggered alerts.
+                    Additionally, agents can leverage SCSM to track ticket
+                    progress, manage workflows, and collaborate with team
+                    members.
+                  </div>
+                </li>
+              </ul>
+              <div>
+                Overall the usage of this Microsoft system center tools for the
+                ticket system delivers and automatized and efficient management
+                solution for the problems presented by the customers, leading to
+                improve the service delivery and user experience.
+              </div>
+            </div>
+          ),
+        },
+      ],
     },
     {
       title: "Service Level Agreement",
@@ -319,7 +516,7 @@ export function SubContent({
   content: { title: string; content: React.ReactNode };
 }) {
   return (
-    <div className="flex flex-col gap-y-5">
+    <div id={content.title} className="flex flex-col gap-y-5">
       <div className="font-bold">{content.title}</div>
       {content.content}
     </div>
@@ -329,20 +526,37 @@ export function SubContent({
 export function ToC({
   contents,
 }: {
-  contents: { title: string; content: React.ReactNode }[];
+  contents: {
+    title: string;
+    content: React.ReactNode;
+    subContents?: { title: string; content: React.ReactNode }[];
+  }[];
 }) {
   return (
-    <div className="flex flex-col text-sm gap-y-2 shrink-0 sticky top-0 overflow-y-auto pr-5">
+    <div className="flex pb-10 flex-col text-sm gap-y-2 shrink-0 sticky top-0 overflow-y-auto pr-5 custom-scrollbar">
       <div className="font-bold">Table of Contents</div>
       {contents.map((item) => (
-        <Button
-          variant="link"
-          className="text-muted-foreground p-0 self-start"
-          key={item.title}
-          asChild
-        >
-          <Link href={`#${item.title}`}>{item.title}</Link>
-        </Button>
+        <div key={item.title}>
+          <Button
+            variant="link"
+            className="hover:text-foreground text-muted-foreground p-0 self-start"
+            asChild
+          >
+            <Link href={`#${item.title}`}>{item.title}</Link>
+          </Button>
+          {item.subContents &&
+            item.subContents.map((item) => (
+              <div key={item.title} className="border-l pl-4">
+                <Button
+                  variant="link"
+                  className="hover:text-foreground text-muted-foreground p-0 self-start"
+                  asChild
+                >
+                  <Link href={`#${item.title}`}>{item.title}</Link>
+                </Button>
+              </div>
+            ))}
+        </div>
       ))}
     </div>
   );
