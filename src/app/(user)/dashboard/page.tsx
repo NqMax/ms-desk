@@ -35,12 +35,10 @@ export default function DashboardHome() {
           </div>
         </div>
         <div className="flex flex-col gap-y-3">
-          <div className="font-bold">Tickets Overview</div>
+          {/* <div className="font-bold">Tickets Overview</div>
           <div className="flex flex-col gap-y-2 rounded-lg p-3 border">
-            <div className="text-sm font-medium">
-              No tickets to display
-            </div>
-          </div>
+            <div className="text-sm font-medium">No tickets to display</div>
+          </div> */}
         </div>
       </div>
     </>

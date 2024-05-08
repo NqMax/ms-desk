@@ -40,15 +40,15 @@ export function HeaderNav() {
                   </Link>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/docs/user" title="Submit a Ticket">
+              <ListItem href="/docs" title="Submit a Ticket">
                 A comprehensive guide to submitting a ticket within Microsoft
                 Desk.
               </ListItem>
-              <ListItem href="/docs/user" title="Ticket Priority">
+              <ListItem href="/docs" title="Ticket Priority">
                 Microsoft Desk offers a range of ticket priorities to help you
                 get the help you need quickly.
               </ListItem>
-              <ListItem href="/docs/user" title="Ticket System">
+              <ListItem href="/docs" title="Ticket System">
                 Learn more about the ticket system and how it works.
               </ListItem>
             </ul>
@@ -56,12 +56,7 @@ export function HeaderNav() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/docs/user">Customer</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/docs/administrator">Administrator</Link>
+            <Link href="/docs">Documentation</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>

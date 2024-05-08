@@ -6,9 +6,10 @@ export function SignInButton() {
   return (
     <Button asChild className="gap-x-3">
       <Link href="/dashboard">
-        <span>Join </span>
+        {/* <span>Join </span>
         <span className="text-xs">|</span>
-        <span>Sign In</span>
+        <span>Sign In</span> */}
+        <div>Dashboard</div>
         <CircleUserRound size={24} />
       </Link>
     </Button>

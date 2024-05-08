@@ -1,18 +1,22 @@
-// import { MongoClient } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 
-// const uri =
-//   "mongodb+srv://admin:9HFrspr6uJW56bb1@marriot-db.0ha5ya6.mongodb.net/?retryWrites=true&w=majority&appName=marriot-db";
+const client = new MongoClient(process.env.MONGO_URI!);
+const db = client.db("ms-desk");
 
-// const client = new MongoClient(uri);
+export async function getTickets() {
+  try {
+    const ticketsColl = db.collection<Ticket>("tickets");
 
-// export async function getAdminDocs() {
-//   try {
-//     const database = client.db("ms-desk");
-//     const adminDocs = database.collection("admin-docs");
+    const result = ticketsColl.find();
 
-//     const result = await adminDocs.find().toArray();
-//     return result;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+    const tickets = [];
+    for await (const ticket of result) {
+      tickets.push({ ...ticket, _id: ticket._id.toString() });
+    }
+
+    return tickets;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to retrieve tickets");
+  }
+}

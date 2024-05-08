@@ -1,10 +1,7 @@
 import Link from "next/link";
-// Data
-// import { getAdminDocs } from "@/lib/data";
-// UI Components
 import { Button } from "@/components/ui/button";
 
-export default function AdministratorDocs() {
+export default async function AdministratorDocs() {
   const contents = [
     {
       title: "Service Document",
@@ -481,7 +478,7 @@ export default function AdministratorDocs() {
   );
 }
 
-export function Content({
+function Content({
   contents,
 }: {
   contents: {
@@ -510,7 +507,7 @@ export function Content({
   );
 }
 
-export function SubContent({
+function SubContent({
   content,
 }: {
   content: { title: string; content: React.ReactNode };
@@ -523,7 +520,7 @@ export function SubContent({
   );
 }
 
-export function ToC({
+function ToC({
   contents,
 }: {
   contents: {
