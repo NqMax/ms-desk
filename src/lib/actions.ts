@@ -3,9 +3,20 @@ import { MongoClient, ObjectId } from "mongodb";
 import { redirect } from "next/navigation";
 import { format } from "date-fns";
 import { revalidatePath } from "next/cache";
+const nodemailer = require("nodemailer");
 
 const client = new MongoClient(process.env.MONGO_URI!);
 const db = client.db("ms-desk");
+
+const transporter = nodemailer.createTransport({
+  host: "smtp.mailersend.net",
+  port: 587,
+  secure: false, // Use `true` for port 465, `false` for all other ports
+  auth: {
+    user: "MS_zoX6hx@trial-ynrw7gyqe7n42k8e.mlsender.net",
+    pass: process.env.EMAIL_CREDENTIALS,
+  },
+});
 
 export async function createTicket(prevState: any, formData: FormData) {
   try {
@@ -83,6 +94,12 @@ export async function commentTicket(prevState: any, formData: FormData) {
 
 export async function updateStatus(prevState: any, formData: FormData) {
   const rawFormData = Object.fromEntries(formData.entries());
+  transporter.sendMail({
+    from: "MS_zoX6hx@trial-ynrw7gyqe7n42k8e.mlsender.net",
+    to: "voxjmjm@gmail.com",
+    subject: `There are new updates on ticket #${rawFormData._id}.`,
+    text: `Hello! Ticket #${rawFormData._id} has been updated. New status is ${rawFormData.status}, be sure to check it out.`,
+  });
   try {
     const ticketsColl = db.collection("tickets");
 
